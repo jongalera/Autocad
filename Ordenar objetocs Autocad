@@ -1,0 +1,4 @@
+ORDENAOBJETOS
+(setq sel1 (ssget "x" '((8 .  "Edificio-L-5C"))))
+
+D
