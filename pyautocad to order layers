@@ -1,0 +1,30 @@
+import os
+import comtypes
+import pyautocad
+from pyautocad import Autocad
+acad = Autocad(create_if_not_exists=True)
+#acad.prompt("Hello, Autocad from Python\n")
+#fileacad=acad.doc
+#print fileacad.name
+#fileacad.Close
+#for obj in acad.iter_objects():
+#    print obj.ObjectName
+ruta="R:\\Proyecto\\Alava2018\\producion\\ENTREGAS\\01_Valderejo_definitiva\\160-54"
+tabla=["NucleoUrbano-T-5C","Cota-T-5C","PanelInformativo-N-5C","CalificacionSuelo-T-5C","OtroRelieve-T-5C","ObraFabrica-N-5C","CaptacionPozo-L-5C","Camino-T-5C","ConduccionResiduales-T-5C","Desaguadero-L-5C","DiseminadoIndustria-T-5C","Edificio-T-5C","Municipio-T-5C","Municipio-N-5C","BalizaCrtr-L-5C","ConduccionHidrocarburos-T-5C","Banco-N-5C","Pozo-N-5C","Paraje-T-5C","PosteTendido-N-5C","Escarpado-L-5C","PosteComunicacion-N-5C","Bancal-L-5C","DepositoGenerico-L-5C","PoligPtoApoyo-N-5C","CabinaBusKiosco-T-5C","Dehesa-N-5C","PistaAeropuerto-N-5C","Barrio-T-5C","Construccion-L-5C","Pilares-L-5C","Monumento-N-5C","PoligPtoApoyo-T-5C","Ferrocarril-T-5C","HitoKmFc-T-5C","HitoKmFc-N-5C","HitoKmCrtr-T-5C","HitoKmCrtr-N-5C","Grada-L-5C","Municipio-L-5C","ConduccionAgua-T-5C","Abrevadero-N-5C","Concejo-N-5C","Concejo-T-5C","FarolaPoste-N-5C","ExplotacionSubterranea-N-5C","ExplotacionSubterranea-L-5C","ExplotacionCieloAbierto-N-5C","FuenteSurgencia-N-5C","LimiteDehesa-L-5C","Carretera-T-5C","MarquesinaParada-N-5C","Chimenea-N-5C","MallaETRS89-T-5C","MallaETRS89-L-5C","MallaED50-T-5C","Hoja-L-5C","EdificioVuelo-T-5C","Hoja-T-5C","EdifMenor-T-5C","Elevacion-T-5C","LagoEmbalse-T-5C","EnergiaTeleco-T-5C","ZonaObras-L-5C","PosteTranvia-N-5C","MallaED50-L-5C","TerminoConcejil-T-5C","TorreColumnaTransp-L-5C","TorreColumnaTendido-N-5C","Aerogenerador-T-5C","TorreColumnaGenerica-N-5C","ConstruccionOcu-L-5C","TerminoProvincial-T-5C","SignaturaCultivo-T-5C","TerminoDehesa-T-5C","TorreColumnaVigia-N-5C","TerminoComunidad-T-5C","TerminoAutonomia-T-5C","PosteGas-N-5C","TendidoComunicacion-L-5C","Provincia-L-5C","CurvaNivel-L-5C","TerminoMunicipal-T-5C","Acequia-T-5C","ZonaCartografiada-L-5C","Zanja-L-5C","ViaUrbana-T-5C","AccidentesGeograf-T-5C","CotaTerreno-N-5C","CotaConstruccion-N-5C","TorreColumnaTransp-N-5C","Urbanizacion-T-5C","TorreColumnaVigia-L-5C","TunelCra-N-5C","Tranvia-N-5C","Transporte-T-5C","TransporteHidraulica-T-5C","TransformadorElectr-N-5C","Aerogenerador-N-5C","Talud-L-5C","Cueva-N-5C","CurvaNivelMaestra-T-5C","Autonomia-L-5C","PuntoNadiral-T-5C","CurvaNivelMaestra-L-5C","PuntoGNSS-T-5C","TendidoElectrico-L-5C","PuntoGNSS-N-5C","Quiosco-N-5C","PuntoGeodesico-N-5C","PuntoNadiral-N-5C","PuertaCierre-L-5C","Puente-N-5C","Autonomia-N-5C","Autonomia-T-5C","Provincia-T-5C","Provincia-N-5C","PuntoGeodesico-T-5C","ArboladoForestal-L-5C","ServicioComunitario-T-5C","CurvaNivelMaestraOcu-L-5C","Antena-N-5C","RioArroyo-T-5C","Arbol-N-5C","Arbolado-L-5C","RegistroTendido-L-5C","RestoArqueologico-N-5C","CurvaNivelOcu-L-5C","Pozo-L-5C","ConduccionHidrocarburos-L-5C","Concejo-L-5C","Cortafuegos-L-5C","HumedalContinental-L-5C","Dehesa-L-5C","PlayaArenal-L-5C","Roquedo-L-5C","Salina-L-5C","Prado-L-5C","Pastizal-L-5C","Matorral-L-5C","HuertaVivero-L-5C","Jardin-L-5C","CultivoLeñoso-L-5C","CultivoHerbaceo-L-5C","ParcelaVistaRustica-L-5C","LineasNoCodificadas-L-5C","Explanada-L-5C","BordilloAcera-L-5C","ObraFabrica-L-5C","Seto-L-5C","MuroParedTapia-L-5C","MuroParedTapiaOcu-L-5C","Valla-L-5C","AlambradaOcu-L-5C","Alambrada-L-5C","Aerogenerador-L-5C","PanelSolar-L-5C","Antena-L-5C","CintaTransportadora-L-5C","ConduccionGenerica-L-5C","ConduccionGenericaOcu-L-5C","ConduccionAgua-L-5C","ConduccionResiduales-L-5C","RestoArqueologico-L-5C","PuntoFluvial-L-5C","Barranco-L-5C","BarrancoOcu-L-5C","FuenteSurgencia-L-5C","Canal-L-5C","CanalOcu-L-5C","AcequiaOcu-L-5C","Acequia-L-5C","VaguadaOcu-L-5C","Vaguada-L-5C","Piscina-L-5C","Estanque-L-5C","LagunaOcu-L-5C","Laguna-L-5C","Embalse-L-5C","EmbalseOcu-L-5C","EstanqueOcu-L-5C","Isla-L-5C","RioArroyoOcu-L-5C","RioArroyo-L-5C","SendaOcu-L-5C","Senda-L-5C","CarrilBici-L-5C","CarrilBiciOcu-L-5C","Tranvia-L-5C","Ferrocarril-L-5C","FerrocarrilOcu-L-5C","ViaPecuaria-L-5C","ViaUrbanaOcu-L-5C","ViaUrbana-L-5C","CaminoOcu-L-5C","Camino-L-5C","CarreteraCalzadaDobleOcu-L-5C","CarreteraCalzadaDoble-L-5C","CarreteraCalzadaUnica-L-5C","CarreteraCalzadaUnicaOcu-L-5C","TorreColumnaGenerica-L-5C","TorreColumnaTendido-L-5C","TransformadorElectr-L-5C","PanelInformativo-L-5C","AparcaderoBici-L-5C","Quiosco-L-5C","Silo-L-5C","Bascula-L-5C","Cueva-L-5C","Anden-L-5C","Cuneta-L-5C","CunetaOcu-L-5C","MuelleEmbarcadero-L-5C","ObraContencion-L-5C","MarquesinaParada-L-5C","PasoPeatonal-L-5C","Tunel-L-5C","Plataforma-L-5C","PlataformaOcu-L-5C","Presa-L-5C","Escalera-L-5C","Rampa-L-5C","CalzadaRomana-L-5C","ExplotacionCieloAbierto-L-5C","PistaAeropuerto-L-5C","PistaHelipuerto-L-5C","Puente-L-5C","PuenteOcu-L-5C","Chimenea-L-5C","Claraboya-L-5C","PorcheSoportal-L-5C","Deporte-L-5C","Juegos-L-5C","Monumento-L-5C","Acueducto-L-5C","Muralla-L-5C","DepósitoGenerico-L-5C","DepositoAgua-L-5C","DepositoHidrocarburos-L-5C","DepositoResiduos-L-5C","EdificioVuelo-L-5C","PatioInterior-L-5C","NaveIndustrial-L-5C","IglesiaErmita-L-5C","ConstruccionLigera-L-5C","Edificio-L-5C"]
+#rutaa="C:\\zip\\Z\\kk"
+#ruta1="C:/zip/Z/kk/"
+for files in os.listdir(ruta):
+    #print files
+    if files=="fin1.dwg":
+        acad.Application.Documents.Open(os.path.join(ruta,files))
+        fileacad=acad.doc
+        layers=[]
+        for entity in acad.ActiveDocument.ModelSpace:
+            layers.append(entity.layer)
+            #print entity.layer
+        layersf=set(layers)
+        #print layersf
+        for f in tabla:
+            if f in layersf:
+                print f
+                fileacad.PostCommand("""ORDENAOBJETOS (setq sel1 (ssget "x" '((8 .  """+'"'+ f +'"'+"))))  D"+"\n")
