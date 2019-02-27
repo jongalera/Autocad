@@ -1,0 +1,36 @@
+#the following script print into pdfs all cad files in ruta directory
+import os
+import comtypes
+import time
+import pyautocad
+from pyautocad import Autocad
+acad = Autocad(create_if_not_exists=True)
+ruta=r"R:\Proyecto\Alava2018\producion\ENTREGAS\01_Valderejo_definitiva\04_DWG\2D CON CARATULA"
+for files in os.listdir(ruta):
+    #print files
+    if files.endswith(".dwg"):
+        acad.Application.Documents.Open(os.path.join(ruta,files))
+        fileacad=acad.doc
+        fileacad.PostCommand("""SCRIPT u:\\autocad\\plotear.scr"""+ "\n")
+        time.sleep(10)
+        acad.Application.Documents.Close()
+        
+        
+        ###this is the SCR macro file:
+          ._PLOT
+          Y
+          Modelo
+          AutoCAD PDF (General Documentation).pc3
+          ISO A0 (841.00 x 1189.00 mm)
+          M
+          H
+          N
+          E
+          0.2=1
+          C
+          N
+
+
+
+
+        
