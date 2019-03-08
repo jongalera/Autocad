@@ -1,0 +1,25 @@
+# For some reason I sometimes need to modify several files doing same things: change some text from color, add new info etc... for that i do 
+#the following procedure: with tinytaskportable i record a video off the task to be done (changes are always located in same screen coordinates)
+Once i have recorded the video i run this python that open the files and execute f12 to run the recorded video...
+import os
+import comtypes
+import pyautocad
+import time
+import pynput
+from pynput.keyboard import Key,Controller
+from pynput import keyboard
+from pyautocad import Autocad
+acad = Autocad(create_if_not_exists=True)
+ruta=r"R:\Proyecto\Alava2018\DWGs\modfif\acabamos - copia"
+pp=Controller()
+#rutaa=r"C:\zip\Z\kk"
+#ruta1="C:/zip/Z/kk/"
+for files in os.listdir(ruta):
+    if files.endswith("dwg") and not(files=='159-51_2D.dwg'):
+        #files=files[2:]
+        print(files)
+        acad.Application.Documents.Open(os.path.join(ruta,files))
+        time.sleep(5)
+        #interesante aplicación para pulsar f12
+        pp.press(keyboard.Key.f12)
+        time.sleep(63)
